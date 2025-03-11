@@ -1,0 +1,16 @@
+﻿@model SimpleWebApp.Models.ProductModel 
+@{
+    ViewData["Title"] = "Delete Product";
+}
+
+<h2>Delete Product</h2>
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>@Model.Name</h4> <!-- Access properties of a single product -->
+    <p>Price: @Model.Price.ToString("C")</p> <!-- Format price as currency -->
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" /> <!-- Pass the product ID to the POST action -->
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    </form>
+</div>
